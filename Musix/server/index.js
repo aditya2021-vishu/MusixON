@@ -18,8 +18,7 @@ app.use(cors({
     methods:["POST","GET","PUT"],
     credentials:true
 }));
-// app.use(cors());
-  
+
 app.use("/user",userRoutes);
 app.use("/song",songRoutes);
 app.get("/",(req,res)=>{

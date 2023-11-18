@@ -38,6 +38,7 @@ export const removeLiked = async (req, res) => {
           arr.splice(index, 1);
         }
       });
+      // const nArr = arr.filter(items => items.songId!==songId); use filter for avoiding any discrepancy...
       await likedSong.updateOne({ userId: id }, { $set: { songs: arr } });
       res
         .status(200)
@@ -138,6 +139,7 @@ export const deletePlayList = async (req, res) => {
           arr.splice(index, 1);
         }
       });
+      // const temp = arr.filter(ele => ele.playListId!==playListId);
       await userPlayList.updateOne({ userId: id }, { $set: { playList: arr } });
       res.status(200).json({ message: "PlayList Deleted Successfully." });
     } else {

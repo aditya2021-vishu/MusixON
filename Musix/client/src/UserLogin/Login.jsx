@@ -48,7 +48,6 @@ function Login() {
       setErrormessage(error?.response?.data?.message);
     }
   };
-
   const googleSuccess = async (res) =>{
     // console.log(res);
     const googleToken = {

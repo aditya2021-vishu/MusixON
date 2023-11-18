@@ -3,7 +3,6 @@ import {login,signup,verificationLink,googleLogin,resetPasswordLink,forgotPasswo
 import { verifyUser,auth } from "../middleware/auth.js";
 
 const router = express.Router();
-
 router.post("/signup",signup);
 router.post("/login",login);
 router.post("/verifyEmail",verificationLink); 
@@ -14,5 +13,4 @@ router.post("/verifyuser",verifyUser);
 router.post("/editprofile",auth,editUserProfile);
 router.post("/changepassword",auth,changeUserPassword);
 router.get("/deleteaccount",auth,deleteUserAccount);
-
 export default router;

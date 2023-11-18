@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const API = axios.create({baseURL: "http://localhost:5000"});
-
 export const signup = (registerData) => API.post('/user/signup',registerData,{withCredentials:true});
 export const login = (loginData) => API.post('/user/login',loginData,{withCredentials:true});
 export const verifylink = (sendData) => API.post('/user/verifyEmail',sendData,{withCredentials:true});

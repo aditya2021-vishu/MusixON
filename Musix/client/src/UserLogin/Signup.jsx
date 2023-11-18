@@ -31,6 +31,7 @@ function Signup() {
 
   function handleChange(e) {
     const { name, value } = e.target;
+    // console.log(name, value);
     setRegisterData((preValue) => {
       return {
         ...preValue,
@@ -62,11 +63,11 @@ function Signup() {
     setPasswordError("");
     try {
       const {data} = await api.signup(registerData);
-      //console.log(data);
+      console.log(data);
       setErrormessage(data?.message? data.message : "");
     } catch (error) {
       setErrormessage(error?.response?.data?.message);
-      //console.log(error);
+      console.log(error);
     }
   };
 
@@ -82,15 +83,15 @@ function Signup() {
       const {data} = await api.googlelogin(googleToken);
       //console.log(data);
       dispatch(isUserExist(true));
-      dispatch(setUserData(data.result));
-      if(data.result.lastPlayedSong){
+      dispatch(setUserData(data?.result));
+      if(data?.result?.lastPlayedSong){
         let arr = [data.result.lastPlayedSong];
         dispatch(playSongs(arr,0));
       }
       navigate(`/`);
     }catch(error){
       //console.log(error);
-      setErrormessage(error);
+      //setErrormessage(error);
     }
   }
 

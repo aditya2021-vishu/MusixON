@@ -11,4 +11,4 @@ export const Store = configureStore({
     user : userReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shazamCoreApi.middleware),
-});
+}); 
